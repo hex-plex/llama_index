@@ -116,7 +116,6 @@ class ReActAgent(BaseAgent):
             raise ValueError(f"Expected ActionReasoningStep, got {reasoning_step}")
         # call tool with input
         tool = self._tools_dict[reasoning_step.action]
-
         tool_output = tool(**reasoning_step.action_input)
         observation_step = ObservationReasoningStep(observation=str(tool_output))
         current_reasoning.append(observation_step)

@@ -49,7 +49,8 @@ class QueryEngineTool(BaseTool):
     def metadata(self) -> ToolMetadata:
         return self._metadata
 
-    def __call__(self, input: Any) -> ToolOutput:
+    def __call__(self, text: Any = None, input: Any = None, **kwargs) -> ToolOutput:
+        input = input or text
         query_str = cast(str, input)
         response = self._query_engine.query(query_str)
         return ToolOutput(

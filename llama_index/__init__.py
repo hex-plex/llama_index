@@ -71,6 +71,7 @@ from llama_index.indices.service_context import (
 )
 
 # langchain helper
+from llama_index.llms.base import ChatMessage
 from llama_index.llm_predictor import LLMPredictor
 from llama_index.langchain_helpers.memory_wrapper import GPTIndexMemory
 from llama_index.langchain_helpers.sql_wrapper import SQLDatabase
@@ -165,6 +166,7 @@ __all__ = [
     "GPTPandasIndex",
     "GPTSQLStructStoreIndex",
     "GPTDocumentSummaryIndex",
+    "ChatMessage",
     "Prompt",
     "LangchainEmbedding",
     "OpenAIEmbedding",
