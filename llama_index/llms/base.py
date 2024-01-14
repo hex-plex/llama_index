@@ -96,7 +96,7 @@ def llm_chat_callback() -> Callable:
         ) -> Any:
             with wrapper_logic(_self) as callback_manager:
                 event_id = callback_manager.on_event_start(
-                    CBEventType.LLM, payload={EventPayload.MESSAGES: messages}
+                    CBEventType.LLM_ASYNC, payload={EventPayload.MESSAGES: messages}
                 )
 
                 f_return_val = await f(_self, messages, **kwargs)
@@ -119,8 +119,9 @@ def llm_chat_callback() -> Callable:
 
                     return wrapped_gen()
                 else:
+                    # print(f_return_val, event_id)
                     callback_manager.on_event_end(
-                        CBEventType.LLM,
+                        CBEventType.LLM_ASYNC,
                         payload={
                             EventPayload.MESSAGES: messages,
                             EventPayload.RESPONSE: f_return_val,

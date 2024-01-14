@@ -121,6 +121,7 @@ class TokenCountingHandler(BaseCallbackHandler):
                     event_id=event_id,
                 )
             )
+            
 
             if self._verbose:
                 print(

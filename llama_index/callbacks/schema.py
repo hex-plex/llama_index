@@ -31,6 +31,7 @@ class CBEventType(str, Enum):
     NODE_PARSING = "node_parsing"
     EMBEDDING = "embedding"
     LLM = "llm"
+    LLM_ASYNC = "llm_async"
     QUERY = "query"
     RETRIEVE = "retrieve"
     SYNTHESIZE = "synthesize"
@@ -53,7 +54,7 @@ class EventPayload(str, Enum):
 
 
 # events that will never have children events
-LEAF_EVENTS = (CBEventType.CHUNKING, CBEventType.LLM, CBEventType.EMBEDDING)
+LEAF_EVENTS = (CBEventType.CHUNKING, CBEventType.LLM, CBEventType.EMBEDDING, CBEventType.LLM_ASYNC)
 
 
 @dataclass
