@@ -156,6 +156,16 @@ class TokenCountingHandler(BaseCallbackHandler):
     def total_llm_token_count(self) -> int:
         """Get the current total LLM token count."""
         return sum([x.total_token_count for x in self.llm_token_counts])
+    
+    @property
+    def prompt_list(self) -> List[str]:
+        """Get the list of input prompts"""
+        return [x.prompt for x in self.llm_token_counts]
+
+    @property
+    def completion_list(self) -> List[str]:
+        """Get the list of output completions"""
+        return [x.completion for x in self.llm_token_counts]
 
     @property
     def prompt_llm_token_count(self) -> int:
